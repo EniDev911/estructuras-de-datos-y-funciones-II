@@ -27,6 +27,12 @@ def filtrar_productos(umbral, operacion='mayor'):
 
 if __name__ == "__main__":
     try:
-        filtrar_productos(int(sys.argv[1]), sys.argv[2])
+        umbral = int(sys.argv[1])
+        operacion = sys.argv[2]
+        filtrar_productos(umbral, operacion)
+        
     except IndexError:
-        filtrar_productos(int(sys.argv[1]))
+        try:
+            filtrar_productos(int(sys.argv[1]))
+        except IndexError:
+            print("Debes pasar los argumentos por línea de comando")
