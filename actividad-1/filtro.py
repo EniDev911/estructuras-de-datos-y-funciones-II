@@ -26,13 +26,9 @@ def filtrar_productos(umbral, operacion='mayor'):
         print("Operación inválida")
 
 if __name__ == "__main__":
-    try:
-        umbral = int(sys.argv[1])
-        operacion = sys.argv[2]
-        filtrar_productos(umbral, operacion)
-        
-    except IndexError:
-        try:
-            filtrar_productos(int(sys.argv[1]))
-        except IndexError:
-            print("Debes pasar los argumentos por línea de comando")
+    if len(sys.argv) == 1:
+        filtrar_productos(int(sys.argv[1]))
+    elif len(sys.argv) >= 2:
+        filtrar_productos(int(sys.argv[1]), sys.argv[2])
+    else:
+        print("Debes pasar los argumentos por línea de comando")
