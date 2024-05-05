@@ -9,21 +9,15 @@ precios = {
     'Tarjeta de Video': 1500000
 }
 
-def filtrar_productos(umbral, operacion='mayor'):
-    resultado = list()
-    if operacion == 'mayor':
-        for k,v in precios.items():
-            if v > umbral:
-                resultado.append(k)
-        print("Los productos mayores al umbral son:", ", ".join(resultado))
-
-    elif operacion == 'menor':
-        for k,v in precios.items():
-            if v < umbral:
-                resultado.append(k)
-        print("Los productos menores al umbral son:", ", ".join(resultado))
+def filtrar_productos(umbral, operacion="mayor"):
+    if operacion == "mayor":
+        filtro = { k:v for k,v in precios.items() if v > umbral }
+        print("Los productos mayores al umbral son:", ", ".join(filtro.keys()))
+    elif operacion == "menor":
+        filtro = { k:v for k,v in precios.items() if v < umbral }
+        print("Los productos menores al umbral son:", ", ".join(filtro.keys()))
     else:
-        print("Operación inválida")
+        print("Lo sentimos, no es una operación válida")
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
