@@ -26,9 +26,9 @@ def filtrar_productos(umbral, operacion='mayor'):
         print("Operación inválida")
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
+    if len(sys.argv) == 2:
         filtrar_productos(int(sys.argv[1]))
-    elif len(sys.argv) >= 2:
+    elif len(sys.argv) >= 3:
         filtrar_productos(int(sys.argv[1]), sys.argv[2])
     else:
         print("Debes pasar los argumentos por línea de comando")
